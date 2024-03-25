@@ -1,0 +1,35 @@
+/*	Escreva um programa que some os números fornecidos pelo usuário até que o número lido seja 
+*	igual a zero. Ao final, mostre o resultado da soma.
+*	Autor(a): Rayssa G. Grafetti, 25/03/2024
+*/
+
+
+import java.util.Scanner;
+
+public class SomarAteZero {
+
+	public static void main(String[] args) {
+		
+		int num, resultado;
+		resultado = 0;
+		
+		System.out.printf("Programa que soma valores até digitar 0(zero).\n");
+		
+		Scanner leia = new Scanner(System.in);
+		
+		do {
+			System.out.printf("\nDigite um número inteiro a ser somado: ");
+			num = leia.nextInt();
+			resultado = resultado + num;
+			
+			System.out.printf("O número lido foi %d e a soma é %d.", num, resultado);
+			
+		}while(num != 0);
+			System.out.printf("\n\nPrograma finalizado.");
+
+		leia.close();
+		
+
+	}
+
+}

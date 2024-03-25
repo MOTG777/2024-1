@@ -1,0 +1,36 @@
+
+import java.util.Scanner;
+
+public class Contador {
+
+	public static void main(String[] args) {
+		
+		int contador = 100;
+		
+		System.out.printf("------ Estrutura de repetição com FOR ------");
+		for(contador = 0; contador <= 100; contador++) {
+			System.out.printf("\nContagem está em:  %d", contador);
+		}
+		
+		System.out.printf("\n\n------ Estrutura de repetição com WHILE ------");
+		while(contador >= 0) {
+			System.out.printf("\nMultiplicação de %d por %d é: %d", contador, 5, contador * 5);
+			contador = contador - 10;
+
+		}
+		
+		Scanner leia = new Scanner(System.in);
+		System.out.printf("\n\n------ Estrutura de repetição com DO WHILE ------");
+		do {
+			System.out.printf("\nDigite um número inteiro diferente de 0 se quiser a repetição. Se não, digite 0 para sair.\n\n\n");
+			contador = leia.nextInt();
+			
+
+		}while(contador != 0);
+		
+		System.out.printf("\nVocê digitou 0 e o programa será encerrado.");
+
+
+	}
+
+}

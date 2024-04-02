@@ -11,9 +11,12 @@ programa {
     escreva("\nDigite a nota do 3º bimestre: ")
     leia(nota3)
 
-    preciso = (nota1+nota2+nota3) / 6
+    preciso = 24 - (nota1+nota2+nota3)
 
     escreva("\nPara passar você precisa tirar: ", preciso)
+
+    se(nota1+nota2+nota3 >= 24)
+      escreva("\n\nJá passou.")
 
 
 

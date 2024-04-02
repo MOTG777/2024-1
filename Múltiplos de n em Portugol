@@ -1,0 +1,23 @@
+programa {
+  funcao inicio() {
+
+    inteiro n, li, ls
+
+    escreva("Você quer os múltiplos de que número? ")
+    leia(n)
+
+    escreva("Qual o limite inferior? ")
+    leia(li)
+
+    escreva("Qual o limite superior? ")
+    leia(ls)
+
+    enquanto(ls>=li){
+      se(li % n == 0)
+      escreva(li, "\n")
+      li++
+    
+    }
+    
+  }
+}

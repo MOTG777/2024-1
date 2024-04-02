@@ -1,0 +1,47 @@
+programa {
+  funcao inicio() {
+
+    real preco,  total, total
+    inteiro pagamento
+    
+    escreva("Digite o valor da sua compra: \n")
+    leia(preco)
+
+    escreva("Escolha sua forma de pagamento entre: \n[1]: à vista;\n[2]: 30 dias direto;\n[3]: 60 dias direto;\nOu [4]: 90 dias direto.\n")
+    leia(pagamento)
+
+    se(pagamento == 1){
+       total = preco * 0.1
+      total = preco -  total
+      escreva("Para essa forma de pagamento seu  total é de 10%, portanto o valor da sua compra sai por ", total)
+    }
+    
+    senao se(pagamento == 2){
+     total = preco * 0.05
+    total = preco -  total
+      escreva("\nPara essa forma de pagamento seu  total é de 5%, portanto o valor da sua compra sai por ", total)
+    }
+
+    senao se(pagamento == 3){
+     total = 0
+    total = preco -  total
+      escreva("\nPara essa forma de pagamento seu  total é de 0%, portanto o valor da sua compra sai por ", total)
+    }
+
+    senao se (pagamento == 4){
+     total = preco * (-0.05)
+    total = preco -  total
+      escreva("\n\nPara essa forma de pagamento a sua adição é de 5%, portanto o valor da sua compra sai por ", total)
+    }
+
+    senao{
+      escreva("\nValor inválido.")
+    }
+
+
+
+
+
+    
+  }
+}

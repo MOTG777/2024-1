@@ -1,0 +1,34 @@
+package aula7;
+
+import java.util.Scanner;
+
+public class Quadrado {
+
+	public static void main(String[] args) {
+		
+		Scanner leia = new Scanner(System.in);
+		
+		int lado=0, i, total, controle=0;
+		
+		System.out.printf("\nEscolha um tamanho de lado para o quadrado: ");
+		lado = leia.nextInt();
+		total = lado * lado;
+		
+		for(i = 0; i < total; i++){
+			controle++;
+			
+			if(controle == lado) {
+			System.out.printf("* \n");
+			controle = 0;
+			}else{
+				System.out.printf("* ");
+			}
+			
+			leia.close();
+
+		}
+		
+
+	}
+
+}

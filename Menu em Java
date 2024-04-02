@@ -1,0 +1,48 @@
+package aula7;
+
+import java.util.Scanner;
+
+public class Menu {
+
+	public static void main(String[] args) {
+		
+		Scanner leia = new Scanner(System.in);
+		
+		int opcao;
+		
+		do {
+		
+			System.out.printf("\n\n##### MENU PRINCIPAL #####\n");
+			System.out.printf("Escolha uma das opções, sendo: \n 1 para [Inserir]; \n 2 para [Excluir]; \n 3 para [Consultar]; \n 4 para [Listar]; \n ou 5 para [Sair]. \n");
+			opcao = leia.nextInt();
+			
+			switch(opcao) {
+			case 1:
+				System.out.printf("\nA opção escolhida foi 1 [Inserir]");
+				break;
+			case 2:
+				System.out.printf("\nA opção escolhida foi 2 [Excluir]");
+				break;
+			case 3:
+				System.out.printf("\nA opção escolhida foi 3 [Consultar]");
+				break;
+			case 4:
+				System.out.printf("\nA opção escolhida foi 4 [Listar]");
+				break;
+			case 5:
+				System.out.printf("\nA opção escolhida foi 5 [Sair]");
+				break;
+			default:
+				System.out.printf("\nOpção inválida, faça uma nova escolha.");
+				}
+		
+		}while(opcao != 5);
+		System.out.printf("\nSistema finalizado. Obrigado pela preferência.");
+		
+		
+		leia.close();
+		
+
+	}
+
+}

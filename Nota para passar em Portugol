@@ -1,0 +1,22 @@
+programa {
+  funcao inicio() {
+    real nota1, nota2, nota3, preciso
+
+    escreva("\nDigite a nota do 1º bimestre: ")
+    leia(nota1)
+
+    escreva("\nDigite a nota do 2º bimestre: ")
+    leia(nota2)
+
+    escreva("\nDigite a nota do 3º bimestre: ")
+    leia(nota3)
+
+    preciso = (nota1+nota2+nota3) / 6
+
+    escreva("\nPara passar você precisa tirar: ", preciso)
+
+
+
+
+  }
+}

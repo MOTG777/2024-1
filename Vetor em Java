@@ -1,0 +1,32 @@
+package aula8;
+
+import java.util.Scanner;
+
+public class Vetor {
+
+	public static void main(String[] args) {
+		
+		Scanner leia = new Scanner(System.in);
+		
+		int i;
+		int vet[] = new int[5];
+		
+		System.out.printf("O tamanho do vetor é: %d", vet.length);
+		
+		for(i=0; i<vet.length; i++){
+			System.out.printf("\nInforme o valor da posição %d: ", i+1);
+			vet[i] = leia.nextInt();
+		}
+			
+		for(i=0; i<5; i++){
+			System.out.printf("\n\nO valor narmazenado na posição %d é: %d", i+1, vet[i]);
+		}
+		
+		
+		
+		
+		
+		leia.close();
+	}
+
+}

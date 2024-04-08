@@ -1,0 +1,37 @@
+package aula8;
+
+import java.util.Scanner;
+
+public class Matriz {
+
+	public static void main(String[] args) {
+		
+		Scanner leia = new Scanner(System.in);
+		
+		int i, j;
+		int [][] matriz = new int [3][3];
+		
+		for(i=0; i<3; i++) {
+			
+			for(j=0; j<3; j++){
+				System.out.printf("\nInforme o valor da posição %dx%d: ", i+1, j+1);
+				matriz[i][j] = leia.nextInt();
+				
+		}
+		
+		}
+		
+		System.out.printf("\nA Matriz ficou: \n");
+			for(i=0; i<3; i++) {
+			
+			for(j=0; j<3; j++){
+				System.out.printf("\t %d \t",matriz[i][j]);
+				
+			}
+			System.out.println();
+			}
+		
+		leia.close();
+	}
+
+}

@@ -1,0 +1,34 @@
+programa {
+  funcao inicio() {
+
+    inteiro va[10], vb[10], vc[10]
+    inteiro i
+
+    para(i=0; i<10; i++){
+      escreva("\nDigite um valor para o primeiro vetor: ")
+      leia(va[i])
+    }
+
+    para(i=0; i<10; i++){
+      escreva("\nDigite um valor para o segundo vetor: ")
+      leia(vb[i])
+    }
+
+    escreva("\nO primeiro vetor ficou: ")
+    para(i=0; i<10; i++){
+      escreva(va[i]," ")
+    } 
+    escreva("\nO segundo vetor ficou: ")
+    para(i=0; i<10; i++){
+      escreva(vb[i]," ")
+    }
+
+    escreva("\nA soma dos valores dos dois vetores fica: ")
+    para(i=0; i<10; i++){
+      vc[i] = (va[i] + vb[i])
+      escreva(vc[i]," ")
+      
+    }
+    
+  }
+}

@@ -1,0 +1,25 @@
+programa {
+  funcao inicio() {
+
+    inteiro a, b, soma = 0, quant = 0
+
+    escreva("Digite o número inicial: ")
+    leia(a)
+
+    escreva("\nDigite o número final: ")
+    leia(b)
+
+    para(a; a<=b; a++){
+      se(a%2==0){
+      escreva("\n",a)
+      quant = quant+1
+      soma = soma + a
+      }
+    }
+
+    escreva("\n\nA média é: ",soma/quant)
+
+
+    
+  }
+}

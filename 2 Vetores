@@ -1,0 +1,40 @@
+programa {
+  funcao inicio() {
+
+    cadeia v1[6], v2[6], v3[6]
+    inteiro i
+
+    para(i=0; i<6; i++){
+      escreva("\nDigite um valor para o primeiro vetor: ")
+      leia(v1[i])
+    }
+
+    para(i=0; i<6; i++){
+      escreva("\nDigite um valor para o segundo vetor: ")
+      leia(v2[i])
+    }
+
+    escreva("\nO primeiro vetor ficou: ")
+    para(i=0; i<6; i++){
+      escreva(v1[i]," ")
+    } 
+    escreva("\nO segundo vetor ficou: ")
+    para(i=0; i<6; i++){
+      escreva(v2[i]," ")
+    }
+    
+    escreva("\nO terceiro vetor fica: ")
+    para(i=0; i<6; i++){
+      se(v1[i] >= v2[i]){
+        v3[i] = v1[i]
+        }
+      senao{
+        v3[i] = v2[i]
+      }
+      escreva(v3[i]," ")
+      
+    }
+
+    
+  }
+}

@@ -1,0 +1,22 @@
+programa {
+  inclua biblioteca Util
+  funcao inicio() {
+
+    cadeia col[5]
+    inteiro i
+
+    para(i=0; i<5; i++){
+      escreva("\nDigite o nome de um de seus coleguinhas: ")
+      leia(col[i])
+    }
+
+    escreva("Seus coleguinhas são: \n")
+
+    para(i=0; i<5; i++){
+      escreva(col[i],"\n")
+    }
+  
+    escreva("\nSeu best do dia é: ", col[Util.sorteia(0,4)])
+  
+  }
+}

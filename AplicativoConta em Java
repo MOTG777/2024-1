@@ -1,0 +1,57 @@
+package aula9;
+
+import java.util.Scanner;
+
+public class AplicativoConta {
+
+	public static void main(String[] args) {
+		
+		Scanner leia = new Scanner(System.in);
+		
+		Conta c = new Conta();
+		double valor;
+		int operacao;
+		
+		c.nome_titular = "Zé";
+		c.numero = 123;
+		c.saldo = 0.0;
+		
+		do {
+			System.out.printf("\n\nDigite [1] para fazer um depósito;\nDigite[2] para fazer um saque;\nDigite [3] para ver o saldo;\nOu, para terminar a execução, digite qualquer outro número: ");
+			operacao = leia.nextInt();
+	
+		
+		if(operacao == 1) {
+			System.out.printf("\n\nTitular %s tem saldo de: R$ %.2f", c.nome_titular, c.saldo);
+			System.out.printf("\nInforme um valor para o depósito: ");
+			valor = leia.nextDouble();
+			c.depositar(valor);
+			System.out.printf("\nTitular %s tem saldo de : R$ %.2f", c.nome_titular, c.saldo);
+		}
+		if(operacao == 2) {
+			System.out.printf("\n\nTitular %s tem saldo de: R$ %.2f", c.nome_titular, c.saldo);
+			System.out.printf("\nInforme um valor para o saque: ");
+			valor = leia.nextDouble();
+			System.out.printf("\nTitular %s tem saldo de: R$ %.2f", c.nome_titular, c.saldo);
+		
+		
+		if(c.sacar(valor)) 
+			System.out.printf("\n\nSaque efetuado com sucesso! O novo saldo é de: R$ %.2f",c.saldo);
+		
+			else 
+				System.out.println("\n\nSaque não efetuado! Saldo insuficiente.");
+			}
+		
+		if(operacao == 3) {
+			System.out.printf("\n\nTitular %s tem saldo de: R$ %.2f", c.nome_titular, c.saldo);
+		}
+		}while(operacao != 3); {
+			System.out.printf("\nPrograma finalizado");
+		}
+		
+		
+		
+		leia.close();
+	}
+
+}

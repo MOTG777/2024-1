@@ -1,0 +1,25 @@
+package aula9;
+
+public class Conta {
+	
+	int numero;
+	String nome_titular;
+	double saldo, limite;
+	
+	void depositar(double valor) {
+		this.saldo = this.saldo + valor;
+		System.out.printf("O depósito foi realizado!");
+	}
+	
+	boolean sacar(double valor) {
+		if(this.saldo >= valor) {
+			this.saldo = this.saldo - valor;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+
+}

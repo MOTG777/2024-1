@@ -1,0 +1,32 @@
+programa {
+  funcao inicio() {
+
+    real v[15], media, total=0, dif
+    inteiro i
+
+    para(i=0; i<15; i++){
+      escreva("\nDigite uma nota: ")
+      leia(v[i])
+    }
+
+    para(i=0; i<15; i++){
+      total = total + v[i]
+    }
+    media = (total/15)
+    escreva("\nA média entre as notas é: ", media)
+
+    para(i=0; i<15; i++){
+      dif = (v[i]-media)
+      escreva("\nA diferença entre as notas e a média é: ", dif)
+    }
+
+
+   
+
+    }
+
+    
+  }
+
+    
+ 

@@ -1,0 +1,66 @@
+package aula9;
+
+public class Conta {
+
+	
+	private int numero;
+	private String nome_titular;
+	protected double saldo;
+	
+	public Conta(int num, String nome, double saldo) {
+		this.numero = num;
+		this.nome_titular = nome;
+		this.saldo = saldo;
+		System.out.printf("\nObjeto Conta numero %d criado com sucesso!", this.numero);
+		this.ImprimirTipoConta();
+		}
+
+	public void ImprimirTipoConta() {
+		System.out.printf("\nConta comum!");
+		}
+	public void ImprimirTipoConta(String s) {
+		System.out.printf("\nConta comum! String recebida: %s",s);
+		}
+	
+	public void depositar(double valor) {
+		this.saldo = this.saldo + valor;
+		System.out.printf("\nO depósito de %.2f foi realizado!", valor);
+	}
+	
+	public boolean sacar(double valor) {
+		if(this.saldo >= valor) {
+			this.saldo = this.saldo - valor;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	// getters e setters
+	
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public String getNome_titular() {
+		return nome_titular;
+	}
+
+	public void setNome_titular(String nome_titular) {
+		this.nome_titular = nome_titular;
+	}
+
+	public double getSaldo() {
+		return saldo;
+	}
+
+	
+	
+
+}

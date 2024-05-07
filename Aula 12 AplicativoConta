@@ -1,0 +1,65 @@
+package aula9;
+
+import java.util.Scanner;
+
+public class AplicativoConta {
+
+	public static void main(String[] args) {
+		
+		Scanner leia = new Scanner(System.in);
+		
+		//Cliente cliente1 = new Cliente("Zá", "123.456.789-01");
+		//Cliente cliente2 = new Cliente("Zé", "987.654.321-09");
+		
+		ContaEspecial c = new ContaEspecial(1,"Zá", "123.456.789-01");
+		ContaPoupanca c2 = new ContaPoupanca(2,"Zé", "987.654.321-09");
+		ContaPoupanca c3 = new ContaPoupanca(2,"Zí","000.000.000-00");
+		
+		double valor;
+		int operacao;
+		
+		
+		do {
+			System.out.printf("\n\n## MENU DE OPERAÇÕES BANCÁRIAS ##");
+			System.out.printf("\nDigite [1] para fazer um depósito;\nDigite [2] para fazer um saque;\nDigite [3] para ver o saldo;\nOu digite [4] para terminar a execução: ");
+			operacao = leia.nextInt();
+	
+		if(operacao>=5) {
+				System.out.printf("\nOpção inválida! repita a operação");
+		}
+		
+		if(operacao == 1) {
+			System.out.printf("\n\nTitular %s tem saldo de: R$ %.2f", c.getNome_titular(), c.getSaldo());
+			System.out.printf("\nInforme um valor para o depósito: ");
+			valor = leia.nextDouble();
+			c.depositar(valor);
+			System.out.printf("\nTitular %s tem saldo de : R$ %.2f", c.getNome_titular(), c.getSaldo());
+		}
+		if(operacao == 2) {
+			System.out.printf("\n\nTitular %s tem saldo de: R$ %.2f", c.getNome_titular(), c.getSaldo());
+			System.out.printf("\nInforme um valor para o saque: ");
+			valor = leia.nextDouble();
+		
+		
+		if(c.sacar(valor)) 
+			System.out.printf("\nSaque efetuado com sucesso! O novo saldo é de: R$ %.2f",c.getSaldo());
+		
+			else 
+				System.out.println("\n\nSaque não efetuado! Saldo insuficiente.");
+			}
+		
+		if(operacao == 3) {
+			
+			System.out.printf("\n\nTitular %s tem saldo de: R$ %.2f", c.getNome_titular(), c.getSaldo());
+		}
+		}while(operacao != 4); {
+			System.out.printf("\nPrograma finalizado.\n");
+		}
+
+		
+		
+		
+		leia.close();
+	}
+
+}

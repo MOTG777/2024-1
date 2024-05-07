@@ -1,0 +1,84 @@
+package aula9;
+
+public abstract class Conta {
+
+	
+	private int numero;
+	private Cliente nome_titular;
+	protected double saldo;
+	
+	public Conta(int num, Cliente nome, double saldo) {
+		this.numero = num;
+		this.nome_titular = nome;
+		this.saldo = saldo;
+		System.out.printf("\nObjeto Conta numero %d criado com sucesso!", this.numero);
+		this.ImprimirTipoConta("Cliente: "+ this.nome_titular);
+		
+		}
+	
+	
+	public Conta(int numero, Cliente nome) {
+		this.numero=numero;
+		this.nome_titular=nome;
+		this.saldo=0.0;
+		System.out.printf("\nObjeto Conta numero %d criado com sucesso!", this.numero);
+		this.ImprimirTipoConta("Cliente: "+ this.nome_titular);
+	}
+	public Conta(int numero, String nomeTitular, String cpfTitular) {
+		this.numero=numero;
+		this.nome_titular=new Cliente(nomeTitular, cpfTitular);
+		this.saldo=0.0;
+		System.out.printf("\nObjeto Conta numero %d criado com sucesso!", this.numero);
+		this.ImprimirTipoConta("Cliente: "+ this.nome_titular.getNome());
+	}
+	
+
+	public void ImprimirTipoConta() {
+		System.out.printf("\nConta comum!");
+		}
+	public void ImprimirTipoConta(String nome_titular) {
+		System.out.printf("\nConta comum! Titular %s.",nome_titular);
+		}
+	
+	public void depositar(double valor) {
+		this.saldo = this.saldo + valor;
+		System.out.printf("\nO depósito de %.2f foi realizado!", valor);
+	}
+	
+	public boolean sacar(double valor) {
+		if(this.saldo >= valor) {
+			this.saldo = this.saldo - valor;
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
+	// getters e setters
+	
+
+	public int getNumero() {
+		return numero;
+	}
+
+	public void setNumero(int numero) {
+		this.numero = numero;
+	}
+
+	public String getNome_titular() {
+		return nome_titular.getNome();
+	}
+
+	public void setNome_titular(Cliente nome_titular) {
+		this.nome_titular = nome_titular;
+	}
+
+	public double getSaldo() {
+		return saldo;
+	}
+
+	
+	
+
+}

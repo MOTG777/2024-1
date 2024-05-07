@@ -1,0 +1,28 @@
+package aula9;
+
+public class ContaPoupanca extends Conta {
+	
+	public ContaPoupanca(int numero, Cliente nome, double saldo) {
+		super(numero, nome, saldo);
+	}
+	public ContaPoupanca(int numero, String nome, String cpf) {
+		super(numero, nome, cpf);
+	}
+
+	@Override
+	public void ImprimirTipoConta() {
+		System.out.printf("\nConta poupança!");
+		}
+	public void ImprimirTipoConta(Cliente nome) {
+		System.out.printf("\nConta poupança! Titular %s.",nome);
+		}
+	
+	public void reajustar(double percentual) {
+		
+		double saldoAtual = this.getSaldo();
+		double reajuste = saldoAtual * percentual;
+		this.depositar(reajuste);
+	}
+	
+	
+	}

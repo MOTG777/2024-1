@@ -1,0 +1,98 @@
+
+Setting environment for using XAMPP for Windows.
+172412944@UCB01DT015265 c:\xampp
+# mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create database imobiliaria;
+Query OK, 1 row affected (0.022 sec)
+
+MariaDB [(none)]> use imobiliaria;
+Database changed
+MariaDB [imobiliaria]> create table inquilino (codinq int auto_increment, int primary key, nome varchar(50));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'int primary key, nome varchar(50))' at line 1
+MariaDB [imobiliaria]> create table inquilino (codinq int auto_increment primary key, nome varchar(50));
+Query OK, 0 rows affected (0.750 sec)
+
+MariaDB [imobiliaria]> describe inquilino;
++--------+-------------+------+-----+---------+----------------+
+| Field  | Type        | Null | Key | Default | Extra          |
++--------+-------------+------+-----+---------+----------------+
+| codinq | int(11)     | NO   | PRI | NULL    | auto_increment |
+| nome   | varchar(50) | YES  |     | NULL    |                |
++--------+-------------+------+-----+---------+----------------+
+2 rows in set (2.915 sec)
+
+MariaDB [imobiliaria]> create table proprietario (codprop int auto_increment primary key, nome varchar(50));
+Query OK, 0 rows affected (3.029 sec)
+
+MariaDB [imobiliaria]> create table corretor (codcorr int auto_increment primary key, nome varchar(50));
+Query OK, 0 rows affected (3.034 sec)
+
+MariaDB [imobiliaria]> show tables;
++-----------------------+
+| Tables_in_imobiliaria |
++-----------------------+
+| corretor              |
+| inquilino             |
+| proprietario          |
++-----------------------+
+3 rows in set (0.520 sec)
+
+MariaDB [imobiliaria]> create table imovel (codimov int auto_increment primary key, descricao varchar(255), codprop int, valoraluguel decimal(7,2), alugado char(1), foreign key (codprop) references proprietario(codprop));
+Query OK, 0 rows affected (1.291 sec)
+
+MariaDB [imobiliaria]> show tables;
++-----------------------+
+| Tables_in_imobiliaria |
++-----------------------+
+| corretor              |
+| imovel                |
+| inquilino             |
+| proprietario          |
++-----------------------+
+4 rows in set (0.001 sec)
+
+MariaDB [imobiliaria]> create table aluguel (codalug int auto_increment primary key, codinq int, dataaluguel date, datavenc date, valoralug decimal(7,2), codimov int, codcorr int, foreign key (codinq) references inquilino (codinq), foreign key (codimov) references imovel (codimov), foreign key (codcorr) references corretor (codcorr));
+Query OK, 0 rows affected (2.620 sec)
+
+MariaDB [imobiliaria]> create table venda (codvenda int auto_increment primary key, valor decimal(9,2), codcorr int, codimov int);
+Query OK, 0 rows affected (1.175 sec)
+
+MariaDB [imobiliaria]> alter table venda add foreign key (codcorr) references corretor (codcorr);
+Query OK, 0 rows affected (3.136 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [imobiliaria]> describe venda;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| codvenda | int(11)      | NO   | PRI | NULL    | auto_increment |
+| valor    | decimal(9,2) | YES  |     | NULL    |                |
+| codcorr  | int(11)      | YES  | MUL | NULL    |                |
+| codimov  | int(11)      | YES  |     | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+4 rows in set (0.026 sec)
+
+MariaDB [imobiliaria]> alter table venda add foreign key (codimov) references imovel (codimov);
+Query OK, 0 rows affected (14.586 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [imobiliaria]> describe venda;
++----------+--------------+------+-----+---------+----------------+
+| Field    | Type         | Null | Key | Default | Extra          |
++----------+--------------+------+-----+---------+----------------+
+| codvenda | int(11)      | NO   | PRI | NULL    | auto_increment |
+| valor    | decimal(9,2) | YES  |     | NULL    |                |
+| codcorr  | int(11)      | YES  | MUL | NULL    |                |
+| codimov  | int(11)      | YES  | MUL | NULL    |                |
++----------+--------------+------+-----+---------+----------------+
+4 rows in set (0.007 sec)
+
+MariaDB [imobiliaria]>

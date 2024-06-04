@@ -1,0 +1,33 @@
+Setting environment for using XAMPP for Windows.
+172412944@UCB01DT015265 c:\xampp
+# mysql -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 8
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> CREATE DATABASE LojaDB;
+Query OK, 1 row affected (0.038 sec)
+
+MariaDB [(none)]> USE LojaDB;
+Database changed
+
+MariaDB [LojaDB]> CREATE TABLE Cliente (id int auto_increment primary key, nome varchar(50), email varchar(50), cpf char(14));
+Query OK, 0 rows affected (2.286 sec)
+
+MariaDB [LojaDB]> create table Produto (id int auto_increment primary key, nome varchar(50), tipo varchar(50), preco decimal(7,2), quantEstoque int);
+Query OK, 0 rows affected (0.640 sec)
+
+MariaDB [LojaDB]> create table Funcionario (id int auto_increment primary key, nome varchar(50), email varchar(50), telefone varchar(17), salario decimal(7,2), turno varchar(50));
+Query OK, 0 rows affected (0.471 sec)
+
+MariaDB [LojaDB]> create table NotaFiscal (id int auto_increment primary key,id_cliente int, id_produto int, foreign key(id_cliente) references Cliente(id), foreign key (id_produto) references Produto(id), formaPag varchar(50));
+Query OK, 0 rows affected (3.847 sec)
+
+
+MariaDB [LojaDB]> create table Sistema (id_notaFiscal int, id_funcionario int,  foreign key(id_notaFiscal) references NotaFiscal(id),  foreign key(id_funcionario) references Funcionario(id));
+Query OK, 0 rows affected (6.026 sec)
+
